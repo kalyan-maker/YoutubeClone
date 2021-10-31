@@ -1,0 +1,29 @@
+.CategoriesBar {
+  padding: 0.5rem 0;
+  font-size: 0.8rem;
+  scrollbar-width: none;
+  display: flex;
+  overflow-x: scroll;
+}
+
+.CategoriesBar::-webkit-scrollbar {
+  width: 0px;
+}
+
+#categories {
+  margin-right: 1rem;
+  padding: 0.5rem;
+  white-space: nowrap;
+  border-bottom: 1.5px solid #b1bdb4;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#categories:hover {
+  background-color: #4c4c4c;
+}
+#categories:active {
+  color: #fff;
+  background-color: #606060;
+  border-color: #4c4c4c;
+}
