@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import "./Categories.css";
+import "./Categories.css"; //import css file
 
+// keywords api for categories
 const keywords = [
   "All",
   "React js",
@@ -22,12 +23,15 @@ const keywords = [
 ];
 
 function Categories() {
-  const [activeElement, setActiveElement] = useState("All");
+  const [activeElement, setActiveElement] = useState("All"); //create useState
+
+  //handleclick function
   const handleClick = (value) => {
     setActiveElement(value);
   };
   return (
     <div className="CategoriesBar">
+      {/*-----------------get keywords using map function--------------------------*/}
       {keywords.map((value, i) => (
         <span
           id="categories"
