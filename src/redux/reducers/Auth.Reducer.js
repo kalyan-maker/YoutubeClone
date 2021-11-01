@@ -3,11 +3,18 @@ import {
   LOGIN_FAIL,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
+  LOG_OUT,
+  LOG_OUT_FAIL,
 } from "../ActionType";
 
+//create initialstate for token , user and loading
 const initialstate = {
-  accesstoken: null,
-  user: null,
+  accessToken: sessionStorage.getItem("clone-access-token")
+    ? sessionStorage.getItem("clone-access-token")
+    : null,
+  user: sessionStorage.getItem("clone-user")
+    ? JSON.parse(sessionStorage.getItem("clone-user"))
+    : null,
   loading: false,
 };
 
@@ -38,6 +45,20 @@ export const AuthReducer = (prevState = initialstate, action) => {
       return {
         ...prevState,
         user: payload,
+      };
+
+    case LOG_OUT: //if loginout to remove accesstoken and user
+      return {
+        ...prevState,
+        accessToken: null,
+        user: null,
+      };
+    case LOG_OUT_FAIL: //if loginout fail return prevstate and place and error
+      return {
+        ...prevState,
+        accessToken: payload,
+        loading: false,
+        error: payload,
       };
     default:
       //if any of the cas does not match return prevState

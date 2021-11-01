@@ -37,7 +37,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
+        <Route path="/" exact>
           <Layout>
             <HomeScreen />
           </Layout>

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Sidebar.css"; //import css for styling
+import { useDispatch } from "react-redux";
 
 //import icons from react-icons
 import {
@@ -13,8 +14,16 @@ import {
   MdOndemandVideo,
   MdOutlineWatchLater,
 } from "react-icons/md";
+import { log_out } from "../../redux/actions/Auth";
 
 function Sidebar({ sidebar, handleToggleSidebar }) {
+  //create logout function
+  const dispatch = useDispatch();
+
+  const logOut = () => {
+    dispatch(log_out());
+  };
+
   return (
     <nav
       className={sidebar ? "sidebar open" : "sidebar"}
@@ -65,7 +74,7 @@ function Sidebar({ sidebar, handleToggleSidebar }) {
       </li>
       <hr style={{ color: "#fff" }} />
       {/*------------MdExitToApp icon-------------*/}
-      <li>
+      <li onClick={logOut}>
         <MdExitToApp size={23} />
         <span>Log Out</span>
       </li>
