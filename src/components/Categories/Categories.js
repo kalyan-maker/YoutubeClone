@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import "./Categories.css"; //import css file
 
+import { useDispatch } from "react-redux";
+import { getVideosByCategory } from "../../redux/actions/Videos";
+
 // keywords api for categories
 const keywords = [
   "All",
   "React js",
   "Firebase",
   "Songs",
-  "Rest Api",
-  "Redux",
+  "Cartoon",
+  "Comedy",
   "Music",
   "Science",
-  "HTMl CSS",
+  "Animal",
   "Telugu Songs",
   "JavaScript",
   "Cricket",
@@ -25,9 +28,11 @@ const keywords = [
 function Categories() {
   const [activeElement, setActiveElement] = useState("All"); //create useState
 
+  const dispatch = useDispatch();
   //handleclick function
   const handleClick = (value) => {
     setActiveElement(value);
+    dispatch(getVideosByCategory(value));
   };
   return (
     <div className="CategoriesBar">

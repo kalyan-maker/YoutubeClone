@@ -5,6 +5,8 @@
   font-weight: 500;
   font-size: 0.9rem;
   cursor: pointer;
+  overflow: scroll;
+  scroll-behavior: smooth;
 }
 
 /*-----------------------video top-----------------------*/
@@ -42,6 +44,7 @@
 }
 
 /*-----------------------video details-----------------------*/
+.details,
 .video__details {
   display: flex;
   align-items: center;
@@ -67,3 +70,17 @@
 .channel {
   margin-bottom: 0;
 }
+
+/* @media only screen and (max-width: 768px) {
+  .video {
+    width: auto;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .video {
+    width: auto;
+    height: auto;
+  }
+} */

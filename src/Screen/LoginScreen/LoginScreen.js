@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom"; //custom imported react-router-do
 function LoginScreen() {
   const dispatch = useDispatch(); //import useDispatch from react-redux
 
-  const accessToken = useSelector((state) => state.AuthReducer.accessToken); //access the token from authreducer
+  const accessToken = useSelector((state) => state.auth.accessToken); //access the token from authreducer
 
   //handlelogin button
   const handleLogin = () => {
