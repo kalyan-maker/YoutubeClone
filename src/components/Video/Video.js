@@ -9,6 +9,7 @@ import moment from "moment";
 import numeral from "numeral";
 
 const Video = ({ video }) => {
+  //video
   const {
     id,
     snippet: {
@@ -23,13 +24,14 @@ const Video = ({ video }) => {
 
   const [views, setViews] = useState(null);
   const [duration, setDuration] = useState(null);
-  const [ChannelIcon, setChannelIcon] = useState(null);
+  const [channelIcon, setChannelIcon] = useState(null);
 
-  const seconds = moment.duration(duration).asSeconds();
-  const duration_time = moment.utc(seconds * 1000).format("mm:ss");
+  const seconds = moment.duration(duration).asSeconds(); //seconds
+  const duration_time = moment.utc(seconds * 1000).format("mm:ss"); //duration time
 
-  const _videoId = id?.videoId || id;
+  const _videoId = id?.videoId || contentDetails?.videoId || id; //video and contentdetails id
 
+  //use effect for videos
   useEffect(() => {
     const getvideodetails = async () => {
       const {
@@ -46,6 +48,7 @@ const Video = ({ video }) => {
     getvideodetails();
   }, [_videoId]);
 
+  //useEffect for channels
   useEffect(() => {
     const getchannelicon = async () => {
       const {
@@ -69,14 +72,12 @@ const Video = ({ video }) => {
         <span className="video__time">{duration_time}</span>
       </div>
       {/*---------------create video title section----------------*/}
-      <div className="video__title">
-        create a app in 10 minutes #made by kalyan
-      </div>
+      <div className="video__title">{title}</div>
       {/*---------------create video channel section----------------*/}
       <div className="video__channel">
         <LazyLoadImage
           className="video__channel__img"
-          src={ChannelIcon?.url}
+          src={channelIcon?.url}
           effect="blur"
         />
         <p className="channel">{channelTitle}</p>
