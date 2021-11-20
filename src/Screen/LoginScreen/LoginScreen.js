@@ -19,7 +19,7 @@ function LoginScreen() {
   //useEffect if login with provider to go to homescreen
   useEffect(() => {
     if (accessToken) {
-      history.push("/homescreen");
+      history.push("/");
     }
   }, [accessToken, history]);
 
