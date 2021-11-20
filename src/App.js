@@ -51,7 +51,7 @@ function App() {
           </Layout>
         </Route>
         <Route>
-          <Redirect to="/" />
+          <Redirect to="/homeScreen" />
         </Route>
       </Switch>
     </Router>
