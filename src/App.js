@@ -37,12 +37,12 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact>
+        <Route path="/homescreen" exact>
           <Layout>
             <HomeScreen />
           </Layout>
         </Route>
-        <Route path="/auth">
+        <Route path="/">
           <LoginScreen />
         </Route>
         <Route path="/search">
@@ -51,7 +51,7 @@ function App() {
           </Layout>
         </Route>
         <Route>
-          <Redirect to="/" />
+          <Redirect to="/homescreen" />
         </Route>
       </Switch>
     </Router>
